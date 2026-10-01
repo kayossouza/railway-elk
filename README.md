@@ -28,8 +28,8 @@ or backups.
 
 Open **Kibana → Settings → Networking** and follow its HTTPS domain.
 Log in as `elastic` with **Elasticsearch → Variables → ELASTIC_PASSWORD**.
-Use **Discover → Create data view**: name `Logs`, index pattern `elk-logs`,
-time field `@timestamp`. Keep generated credentials and encryption keys stable.
+Keep generated credentials and encryption keys stable. Send the first event
+below before creating a data view.
 
 ## Send data
 
@@ -48,7 +48,7 @@ curl --fail-with-body --user "shipper:$LOGSTASH_PASSWORD" \
   -d '{"message":"hello from Railway","service":"my-app","level":"info"}'
 ```
 
-To try it without an application, install/login to the Railway CLI, link your
+To try it without an application, install/login to the current Railway CLI, link your
 ELK project (`railway link`), then copy this command. It uses the generated
 credential inside Logstash and prints no secret:
 
@@ -57,7 +57,9 @@ railway ssh --service Logstash -- \
   'curl --fail-with-body --user "shipper:$INPUT_PASSWORD" -H "Content-Type: application/json" http://127.0.0.1:8080 -d "{\"message\":\"hello from Railway\",\"service\":\"my-app\",\"level\":\"info\"}"'
 ```
 
-In Discover, select `Logs`, set the time range to **Last 15 minutes**, and search
+After sending data, open **Discover → Create data view**: name `Logs`, index
+pattern `elk-logs`, time field `@timestamp`. Select `Logs`, set the time range to
+**Last 15 minutes**, and search
 `message : "hello from Railway"`. A successful intake response means accepted;
 finding the event confirms delivery. Private intake is unavailable from your laptop.
 
