@@ -1,6 +1,6 @@
 # Operating boundaries and recovery
 
-Use EVIDENCE.md in the review bundle for current test status. This package supports
+Use the parent EVIDENCE.md in the review bundle for current test status. This package supports
 producers in the same Railway project/environment only. ES and intake have no
 public endpoint. Deployment readiness is not a delivery guarantee: send a unique
 canary and search for its original fields through Kibana.

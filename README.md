@@ -28,7 +28,8 @@ or backups.
 
 Open **Kibana → Settings → Networking** and follow its HTTPS domain.
 Log in as `elastic` with **Elasticsearch → Variables → ELASTIC_PASSWORD**.
-Keep generated credentials and encryption keys stable. Send the first event
+Choose **Explore on my own** on the welcome screen. Keep generated credentials
+and encryption keys stable. Send the first event
 below before creating a data view.
 
 ## Send data
@@ -57,11 +58,15 @@ railway ssh --service Logstash -- \
   'curl --fail-with-body --user "shipper:$INPUT_PASSWORD" -H "Content-Type: application/json" http://127.0.0.1:8080 -d "{\"message\":\"hello from Railway\",\"service\":\"my-app\",\"level\":\"info\"}"'
 ```
 
-After sending data, open **Discover → Create data view**: name `Logs`, index
+After sending data, open **☰ → Analytics → Discover**. Open the data-view
+selector (initially **All logs**) and choose **Create a data view**: name `Logs`, index
 pattern `elk-logs`, time field `@timestamp`. Select `Logs`, set the time range to
 **Last 15 minutes**, and search
 `message : "hello from Railway"`. A successful intake response means accepted;
 finding the event confirms delivery. Private intake is unavailable from your laptop.
+For a smoke test, use each service’s deployment menu to **Redeploy**, then
+**Restart**; wait for that deployment to become healthy and search the same event.
+Send another event to confirm recovery. Keep secrets and volumes unchanged.
 
 ## Cost
 
