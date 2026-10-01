@@ -3,20 +3,23 @@
     "RAILWAY_RUN_UID": "0",
     "ELASTIC_PASSWORD": "${{secret(48)}}",
     "KIBANA_PASSWORD": "${{secret(48)}}",
-    "LOGSTASH_PASSWORD": "${{secret(48)}}"
+    "LOGSTASH_PASSWORD": "${{secret(48)}}",
+    "PORT": "8081"
   },
   "Logstash": {
     "INPUT_PASSWORD": "${{secret(48)}}",
     "RAILWAY_RUN_UID": "0",
     "ELASTICSEARCH_URL": "http://${{Elasticsearch.RAILWAY_PRIVATE_DOMAIN}}:9200",
     "ELASTICSEARCH_READY_URL": "http://${{Elasticsearch.RAILWAY_PRIVATE_DOMAIN}}:8081/ready",
-    "LOGSTASH_PASSWORD": "${{Elasticsearch.LOGSTASH_PASSWORD}}"
+    "LOGSTASH_PASSWORD": "${{Elasticsearch.LOGSTASH_PASSWORD}}",
+    "PORT": "9600"
   },
   "Kibana": {
     "ELASTICSEARCH_URL": "http://${{Elasticsearch.RAILWAY_PRIVATE_DOMAIN}}:9200",
     "KIBANA_PASSWORD": "${{Elasticsearch.KIBANA_PASSWORD}}",
     "SECURITY_KEY": "${{secret(64)}}",
     "SAVED_OBJECTS_KEY": "${{secret(64)}}",
-    "REPORTING_KEY": "${{secret(64)}}"
+    "REPORTING_KEY": "${{secret(64)}}",
+    "PORT": "8082"
   }
 }

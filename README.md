@@ -6,12 +6,11 @@ Only Kibana is public, through Railway HTTPS.
 
 ## One-click deploy
 
-The unpublished deployment link is pending the fresh-template gate. This source
-is not yet ready to claim one-click deployment. No template has been published.
-
-The intended deployment needs no password or connection setup: Railway generates
-all secrets and resolves private service references. Wait for all services to be
-healthy before opening Kibana.
+[Deploy the unpublished ELK draft](https://railway.com/deploy/KPF5VY).
+Select your workspace, name the project, and click **Deploy**. No variable editing,
+CLI, scripts or manual wiring is needed. Wait for all three services to be healthy.
+This private test draft requires source-repository access; it is not published in
+the marketplace. For the quality gate, name the project `bounty-test-elk-3`.
 
 ## What you get
 
@@ -58,7 +57,7 @@ Previous live test: **$39.74/month RAM + CPU** if its short sampled idle usage
 continues for a month: 3.7974 GB RAM and 0.08825 vCPU, seven samples per service
 over 199.55 seconds. This is rate arithmetic, not a monthly invoice. Storage,
 public egress and workspace subscription/credits are additional considerations.
-See [measured cost](../../src/COST.md) for raw measurements and published rates.
+See [measured cost](COST.md) for raw measurements and published rates.
 A final fresh-run measurement is pending.
 
 ## Troubleshooting
