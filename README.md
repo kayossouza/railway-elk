@@ -11,7 +11,7 @@ Select your workspace and click **Deploy**. For an existing empty project, selec
 it, click **Review and deploy**, then **Deploy Template**. No variable editing,
 CLI, scripts or manual wiring is needed. Wait for all three services to be healthy.
 This private test draft requires source-repository access; it is not published in
-the marketplace. For the quality gate, use the empty project `bounty-test-elk-3`.
+the marketplace.
 
 ## What you get
 
@@ -66,16 +66,16 @@ pattern `elk-logs`, time field `@timestamp`. Select `Logs`, set the time range t
 finding the event confirms delivery. Private intake is unavailable from your laptop.
 For a smoke test, use each service’s deployment menu to **Redeploy**, then
 **Restart**; wait for that deployment to become healthy and search the same event.
+Restarts briefly interrupt availability; retry while the service starts.
 Send another event to confirm recovery. Keep secrets and volumes unchanged.
 
 ## Cost
 
-Previous live test: **$39.74/month RAM + CPU** if its short sampled idle usage
-continues for a month: 3.7974 GB RAM and 0.08825 vCPU, seven samples per service
-over 199.55 seconds. This is rate arithmetic, not a monthly invoice. Storage,
-public egress and workspace subscription/credits are additional considerations.
-See [measured cost](COST.md) for raw measurements and published rates.
-A final fresh-run measurement is pending.
+Final fresh test: **$34.40/month RAM + CPU** if its measured idle means
+continue for a month: 3.2133 GB RAM and 0.11335 vCPU over
+240.02 seconds. This is rate arithmetic, not a monthly invoice.
+Storage, public egress and workspace subscription/credits also affect your bill.
+See [measured cost](COST.md) for samples, the project meter and published rates.
 
 ## Troubleshooting
 

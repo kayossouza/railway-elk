@@ -1,0 +1,79 @@
+{
+  "published_price_source": "https://docs.railway.com/pricing/plans",
+  "price_checked_utc_date": "2026-10-01",
+  "window": {
+    "start": "2026-10-01T21:08:18.971916+00:00",
+    "end": "2026-10-01T21:12:18.989018+00:00",
+    "elapsed_seconds": 240.017102
+  },
+  "services": [
+    {
+      "service": "Elasticsearch",
+      "samples": 8,
+      "ram_mean_gb": 1.585055744,
+      "ram_peak_gb": 1.665200128,
+      "cpu_mean_vcpu": 0.059367437499999995,
+      "cpu_peak_vcpu": 0.0989712,
+      "sample_times": [
+        "2026-10-01T21:08:30+00:00",
+        "2026-10-01T21:09:00+00:00",
+        "2026-10-01T21:09:30+00:00",
+        "2026-10-01T21:10:00+00:00",
+        "2026-10-01T21:10:30+00:00",
+        "2026-10-01T21:11:00+00:00",
+        "2026-10-01T21:11:30+00:00",
+        "2026-10-01T21:12:00+00:00"
+      ]
+    },
+    {
+      "service": "Logstash",
+      "samples": 8,
+      "ram_mean_gb": 0.729494016,
+      "ram_peak_gb": 0.732196864,
+      "cpu_mean_vcpu": 0.0125708125,
+      "cpu_peak_vcpu": 0.019050066666666667,
+      "sample_times": [
+        "2026-10-01T21:08:30+00:00",
+        "2026-10-01T21:09:00+00:00",
+        "2026-10-01T21:09:30+00:00",
+        "2026-10-01T21:10:00+00:00",
+        "2026-10-01T21:10:30+00:00",
+        "2026-10-01T21:11:00+00:00",
+        "2026-10-01T21:11:30+00:00",
+        "2026-10-01T21:12:00+00:00"
+      ]
+    },
+    {
+      "service": "Kibana",
+      "samples": 8,
+      "ram_mean_gb": 0.898765312,
+      "ram_peak_gb": 0.919314432,
+      "cpu_mean_vcpu": 0.041415974999999994,
+      "cpu_peak_vcpu": 0.08842796666666666,
+      "sample_times": [
+        "2026-10-01T21:08:30+00:00",
+        "2026-10-01T21:09:00+00:00",
+        "2026-10-01T21:09:30+00:00",
+        "2026-10-01T21:10:00+00:00",
+        "2026-10-01T21:10:30+00:00",
+        "2026-10-01T21:11:00+00:00",
+        "2026-10-01T21:11:30+00:00",
+        "2026-10-01T21:12:00+00:00"
+      ]
+    }
+  ],
+  "totals": {
+    "ram_gb": 3.213315072,
+    "cpu_vcpu": 0.11335422499999999
+  },
+  "monthly_ram_cpu_at_sampled_idle_usd": 34.40023522,
+  "test_meter_usd": 0.01696929054689636,
+  "formula": "10 * RAM_GB + 20 * vCPU + 0.15 * occupied_volume_GB + 0.05 * actual_public_egress_GB",
+  "limits": [
+    "Short sampled idle scenario after smoke/recovery tests; not a final invoice or capacity benchmark",
+    "RAM includes filesystem cache and native memory, not only heap",
+    "Provider volume snapshot can lag; allocated capacity is not occupied storage",
+    "Public egress and occupied storage are excluded from RAM/CPU figure; no assumed monthly traffic",
+    "Workspace subscription and included credits must not be double counted"
+  ]
+}

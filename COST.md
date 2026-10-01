@@ -1,47 +1,38 @@
-# Measured usage and cost
+# Measured cost
 
-Latest observed idle window: **2026-10-01T19:46:58.706975+00:00 → 2026-10-01T19:50:18.255225+00:00**,
-**199.548250 seconds**. All services were healthy; no producer,
-browser or SSH activity. Platform probes and normal background work remain.
-The DLQ was filled by the deliberate adverse test, so this is not pristine
-empty-stack idle. Measurement ends before the last ES upload, which only reorders
-fresh-install provisioning steps; no savings from that change are claimed.
+Final fresh project: `bounty-test-elk-3`, Pro workspace, after smoke and recovery tests.
+Idle window: **2026-10-01T21:08:18.971916+00:00 → 2026-10-01T21:12:18.989018+00:00**, **240.017102 seconds**.
+No producer, SSH, deploy or Kibana browser traffic during the window. Platform
+probes and normal background work remain. This is a short small-workload sample.
 
 | Service | Samples | Mean RAM GB | Peak RAM GB | Mean vCPU | Peak vCPU |
 |---|---:|---:|---:|---:|---:|
-| Elasticsearch | 7 | 2.016190464 | 2.016649216 | 0.046470643 | 0.065285433 |
-| Logstash | 7 | 0.835510857 | 0.836661248 | 0.016162019 | 0.037944867 |
-| Kibana | 7 | 0.945715493 | 0.975761408 | 0.025621038 | 0.074811467 |
+| Elasticsearch | 8 | 1.585055744 | 1.665200128 | 0.059367437 | 0.098971200 |
+| Logstash | 8 | 0.729494016 | 0.732196864 | 0.012570813 | 0.019050067 |
+| Kibana | 8 | 0.898765312 | 0.919314432 | 0.041415975 | 0.088427967 |
 
-Raw samples, sample timestamps, exact arithmetic and limits:
-[calculation](../evidence/fix/cost-summary.json), `idle-es.stdout`,
-`idle-ls.stdout`, `idle-kb.stdout` and adjacent timestamped command records under
-`evidence/fix/`. Samples are observed means/peaks, not continuous extrema.
-
-Published monthly formula ([Railway pricing](https://docs.railway.com/pricing/plans),
-verified 2026-10-01):
+Total means: **3.213315072 GB RAM**, **0.113354225 vCPU**.
+At [Railway's published rates](https://docs.railway.com/pricing/plans), checked
+2026-10-01, maintaining these sampled levels for a billing month gives
+**$34.400235220/month RAM + CPU**. This is a conditional usage scenario, not an
+invoice, sustained-load forecast, proven minimum or competitor-savings claim.
+RAM includes native memory and filesystem cache, not just JVM/V8 heaps.
 
 ```text
-10 × measured RAM GB + 20 × measured vCPU
+10 × RAM GB + 20 × vCPU
 + 0.15 × actual occupied volume GB + 0.05 × actual public egress GB
 ```
 
-Observed idle RAM/CPU sum: **3.797416814 GB**,
-**0.088253700 vCPU**. At the published monthly rates, keeping
-exactly that sampled RAM/CPU level for a full billing month would yield
-**$39.739242137** for RAM/CPU only. This is a
-conditional scenario, not a forecast, final bill, minimum or competitor comparison.
-No public-traffic or storage-growth assumption is added.
+Final provider project meter snapshot: **$0.016969290547** for this
+project's test usage, including reported storage and public egress. It may lag
+and is not a final invoice. Allocated volume capacity is not occupied storage;
+provider occupancy snapshots can lag writes. Storage growth and monthly traffic
+are excluded from the RAM/CPU scenario; no arbitrary allowance is invented.
+Workspace subscription and included credits must not be double counted.
 
-Provider current-period project meter at the recorded snapshot:
-**$0.033532616221**, including failed deploys, temporary diagnostic
-processes, mapping rejection, queue tests and browser activity. It may lag and is
-not a final invoice. Source: `usage-final.stdout` and `.meta.json`. Occupancy
-snapshots may lag writes; allocated capacity is not occupied-storage cost.
-Subscription fees/credits belong to the workspace and are kept separate; do not
-add full subscription plus full metered usage twice.
-
-Earlier observed runs and shorter workload/startup samples are retained in
-[COST.previous.md](COST.previous.md) and EVIDENCE.previous.md. They are historical,
-not blended into this latest window. No alternative was measured with comparable
-idle/ingest/search/recovery workloads, so no cheapest/savings claim is supported.
+The review bundle retains raw `idle-es.stdout`, `idle-ls.stdout`, `idle-kb.stdout`,
+`idle-volumes.stdout`, `usage-final.stdout` and exact timestamped commands under
+`evidence/quality/`. [cost-summary.json](cost-summary.json) contains sample times,
+full precision and calculation limits. Earlier measurements remain historical
+in the review evidence and are not blended into this final window.
+Free/Trial compatibility and long-term load capacity were not validated.

@@ -23,7 +23,7 @@ and intake credentials use `${{secret(48)}}`; Kibana encryption keys use
 `${{secret(64)}}`. Consumer credentials and hosts use Railway references.
 There are no blank user inputs. Ports, intake username and heap limits are image
 defaults; Railway healthcheck ports and mounted-volume ownership settings remain
-explicit variables. `composer.json` is a local review manifest, not an import file.
+explicit variables. The reviewer evidence records the actual serialized draft.
 
 Upstream Elastic images are pinned by version and digest in each Dockerfile.
 Small in-container wrappers provision identities, repair mount ownership and
