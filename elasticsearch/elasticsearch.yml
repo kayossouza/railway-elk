@@ -1,0 +1,11 @@
+cluster.name: railway-elk
+network.host: "::"
+http.port: 9200
+discovery.type: single-node
+xpack.security.enabled: true
+xpack.security.autoconfiguration.enabled: false
+xpack.security.http.ssl.enabled: false
+xpack.security.transport.ssl.enabled: false
+node.store.allow_mmap: false
+xpack.ml.enabled: false
+ingest.geoip.downloader.enabled: false

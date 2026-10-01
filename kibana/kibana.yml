@@ -1,0 +1,12 @@
+server.name: railway-elk
+server.host: "::"
+server.port: 5601
+elasticsearch.hosts: ["${ELASTICSEARCH_URL}"]
+elasticsearch.username: kibana_system
+elasticsearch.password: "${KIBANA_PASSWORD}"
+xpack.security.encryptionKey: "${SECURITY_KEY}"
+xpack.encryptedSavedObjects.encryptionKey: "${SAVED_OBJECTS_KEY}"
+xpack.reporting.encryptionKey: "${REPORTING_KEY}"
+xpack.security.secureCookies: true
+telemetry.enabled: false
+telemetry.optIn: false

@@ -1,0 +1,16 @@
+api.http.host: "::"
+api.http.port: 9600
+path.data: /usr/share/logstash/data
+pipeline.workers: 1
+pipeline.batch.size: 50
+pipeline.ecs_compatibility: disabled
+queue.type: persisted
+queue.max_bytes: 64mb
+queue.page_capacity: 16mb
+queue.checkpoint.writes: 1
+xpack.monitoring.enabled: false
+config.reload.automatic: false
+
+dead_letter_queue.enable: true
+dead_letter_queue.max_bytes: 64mb
+dead_letter_queue.storage_policy: drop_newer
