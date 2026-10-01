@@ -21,15 +21,20 @@ READY = False
 CLIENT = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
 
-def api(path, body=None, user="elastic", password=None):
+def api(path, body=None, user="elastic", password=None, allow_missing=False):
     auth = base64.b64encode(f"{user}:{password or ENV['ELASTIC_PASSWORD']}".encode()).decode()
     data = None if body is None else json.dumps(body).encode()
     req = urllib.request.Request("http://127.0.0.1:9200" + path, data=data,
                                  method="GET" if body is None else "PUT",
                                  headers={"Authorization": "Basic " + auth,
                                           "Content-Type": "application/json"})
-    with CLIENT.open(req, timeout=5) as response:
-        return json.load(response)
+    try:
+        with CLIENT.open(req, timeout=5) as response:
+            return json.load(response)
+    except urllib.error.HTTPError as exc:
+        if allow_missing and body is None and exc.code == 404:
+            return {}
+        raise
 
 
 def healthy():
@@ -77,7 +82,7 @@ try:
         if time.monotonic() > deadline:
             raise RuntimeError("Elasticsearch bootstrap readiness timed out")
         time.sleep(2)
-    if not api("/_security/user/logstash_writer"):
+    if not api("/_security/user/logstash_writer", allow_missing=True):
         api("/_security/user/elastic/_password", {"password": ENV["ELASTIC_PASSWORD"]})
         api("/_security/role/elk_writer", {
             "cluster": ["monitor"],

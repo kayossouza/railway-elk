@@ -7,10 +7,11 @@ Only Kibana is public, through Railway HTTPS.
 ## One-click deploy
 
 [Deploy the unpublished ELK draft](https://railway.com/deploy/KPF5VY).
-Select your workspace, name the project, and click **Deploy**. No variable editing,
+Select your workspace and click **Deploy**. For an existing empty project, select
+it, click **Review and deploy**, then **Deploy Template**. No variable editing,
 CLI, scripts or manual wiring is needed. Wait for all three services to be healthy.
 This private test draft requires source-repository access; it is not published in
-the marketplace. For the quality gate, name the project `bounty-test-elk-3`.
+the marketplace. For the quality gate, use the empty project `bounty-test-elk-3`.
 
 ## What you get
 
@@ -45,6 +46,15 @@ Run this from that application, in the **same project and environment**:
 curl --fail-with-body --user "shipper:$LOGSTASH_PASSWORD" \
   -H 'Content-Type: application/json' "$LOGSTASH_URL" \
   -d '{"message":"hello from Railway","service":"my-app","level":"info"}'
+```
+
+To try it without an application, install/login to the Railway CLI, link your
+ELK project (`railway link`), then copy this command. It uses the generated
+credential inside Logstash and prints no secret:
+
+```bash
+railway ssh --service Logstash -- \
+  'curl --fail-with-body --user "shipper:$INPUT_PASSWORD" -H "Content-Type: application/json" http://127.0.0.1:8080 -d "{\"message\":\"hello from Railway\",\"service\":\"my-app\",\"level\":\"info\"}"'
 ```
 
 In Discover, select `Logs`, set the time range to **Last 15 minutes**, and search
