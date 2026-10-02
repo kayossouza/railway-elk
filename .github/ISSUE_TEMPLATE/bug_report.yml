@@ -1,0 +1,16 @@
+name: Bug report
+description: Report a reproducible problem without secrets.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Revision, runtime, steps, expected and actual behavior. Remove secrets and private logs.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Relevant errors and commands, without credentials or personal data.

@@ -1,0 +1,39 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  lint-and-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+          cache: false
+      - run: python3 -m pip install -r requirements-dev.txt
+      - run: python3 scripts/lint.py
+      - run: python3 scripts/test_examples.py
+  images:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [elasticsearch, logstash, kibana]
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build --platform linux/amd64 -t elk-local/${{ matrix.service }}:test ${{ matrix.service }}
+      - name: Check Logstash configuration
+        if: matrix.service == 'logstash'
+        run: |
+          docker run --rm --user 1000:0 --entrypoint /usr/share/logstash/bin/logstash \
+            -e INPUT_USER=shipper -e INPUT_PASSWORD= \
+            -e ELASTICSEARCH_URL=http://localhost:9200 -e LOGSTASH_PASSWORD= \
+            elk-local/logstash:test --config.test_and_exit

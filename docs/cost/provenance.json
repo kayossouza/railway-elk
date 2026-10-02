@@ -1,0 +1,10 @@
+{
+  "source": "Historical Railway metrics export, bounty-test-elk-3",
+  "original_export_sha256": {
+    "es": "2311bf0b5887b50ab939e44a3784decbd12eb73609b52fbd64a05ac6e6651ae4",
+    "ls": "c74136ae5df99c84f973f169fec074094b17a6ca2b75476e1d610a127977c240",
+    "kb": "a142b3a4fd36f88e665f11a16a08950f18bb59fb18c0be19ea9ebd1f22defa66"
+  },
+  "note": "Exports reduced to CPU and memory samples. Unrelated metadata omitted.",
+  "currentUsageDollars": 0.01696929054689636
+}

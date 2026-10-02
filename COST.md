@@ -1,6 +1,6 @@
 # Measured cost
 
-Final fresh project: `bounty-test-elk-3`, Pro workspace, after smoke and recovery tests.
+Historical quality-test project: `bounty-test-elk-3`, Pro workspace, after smoke and recovery tests.
 Idle window: **2026-10-01T21:08:18.971916+00:00 → 2026-10-01T21:12:18.989018+00:00**, **240.017102 seconds**.
 No producer, SSH, deploy or Kibana browser traffic during the window. Platform
 probes and normal background work remain. This is a short small-workload sample.
@@ -30,9 +30,10 @@ provider occupancy snapshots can lag writes. Storage growth and monthly traffic
 are excluded from the RAM/CPU scenario; no arbitrary allowance is invented.
 Workspace subscription and included credits must not be double counted.
 
-The review bundle retains raw `idle-es.stdout`, `idle-ls.stdout`, `idle-kb.stdout`,
-`idle-volumes.stdout`, `usage-final.stdout` and exact timestamped commands under
-`evidence/quality/`. [cost-summary.json](cost-summary.json) contains sample times,
-full precision and calculation limits. Earlier measurements remain historical
-in the review evidence and are not blended into this final window.
+Raw CPU/RAM samples are in [docs/cost](docs/cost). The provenance file records
+hashes of the historical provider exports and the project meter value.
+[cost-summary.json](cost-summary.json) contains sample times, full precision and
+calculation limits. Samples outside the stated idle window are not averaged.
 Free/Trial compatibility and long-term load capacity were not validated.
+
+No new idle cost window was measured for this documentation package.
