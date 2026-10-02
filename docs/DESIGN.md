@@ -4,7 +4,7 @@ Reuse the existing service Dockerfiles, configuration and startup wrappers witho
 changing runtime behavior. Keep each service as its own Railway root directory.
 Exclude local provisioning scripts, dependencies, caches and reviewer state.
 Manual template wiring is documented in TEMPLATE.md; resolved secrets are never
-part of the repository. The deploy button links to template KPF5VY.
+part of the repository. The deploy button links to template elk-stack-2.
 
 Compared with adding language SDKs or a shared logging library, standard-library
 HTTP producers keep the examples copyable and dependency-free. They send the

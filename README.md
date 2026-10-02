@@ -1,4 +1,4 @@
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/KPF5VY?utm_source=github-readme&utm_medium=referral&utm_campaign=elk-launch)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/elk-stack-2?utm_source=github-readme&utm_medium=referral&utm_campaign=elk-launch)
 
 # Deploy and Host ELK Stack: Elasticsearch, Logstash, Kibana
 

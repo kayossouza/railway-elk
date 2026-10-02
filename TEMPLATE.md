@@ -1,6 +1,6 @@
 # Railway setup
 
-[Deploy the template](https://railway.com/deploy/KPF5VY) to create the configured
+[Deploy the template](https://railway.com/deploy/elk-stack-2) to create the configured
 stack. The following inventory also supports manual setup.
 
 Create services named `Elasticsearch`, `Logstash` and `Kibana` in the same project,

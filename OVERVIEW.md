@@ -1,6 +1,6 @@
 # ELK Stack
 
-[Deploy on Railway](https://railway.com/deploy/KPF5VY).
+[Deploy on Railway](https://railway.com/deploy/elk-stack-2).
 Elasticsearch stores logs, Logstash accepts authenticated JSON, and Kibana
 searches them. Credentials and encryption keys are generated automatically.
 Only Kibana has a public domain. Applications send logs from the same Railway
