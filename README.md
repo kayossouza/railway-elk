@@ -1,5 +1,7 @@
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/elk-stack-2?utm_source=github-readme&utm_medium=referral&utm_campaign=elk-launch)
 
+[Documentation](https://railway-elk-docs.vercel.app) · [Source](https://github.com/kayossouza/railway-elk)
+
 # Deploy and Host ELK Stack: Elasticsearch, Logstash, Kibana
 
 Authenticated JSON logs, persistent storage, and Kibana search on Railway.
