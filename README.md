@@ -1,6 +1,6 @@
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/KPF5VY?utm_source=github-readme&utm_medium=referral&utm_campaign=elk-launch)
 
-# ELK Stack: Elasticsearch, Logstash, Kibana
+# Deploy and Host ELK Stack: Elasticsearch, Logstash, Kibana
 
 Authenticated JSON logs, persistent storage, and Kibana search on Railway.
 
@@ -39,7 +39,7 @@ The private URL is reachable from the same environment, not from your laptop.
 See [Node, Python and Go examples](examples/README.md) and
 [Railway configuration](TEMPLATE.md).
 
-## Architecture
+## About Hosting ELK Stack
 
 ```mermaid
 flowchart LR
@@ -54,7 +54,7 @@ flowchart LR
 Only Kibana is public. Private service traffic is unencrypted HTTP inside the
 Railway environment. Do not expose Elasticsearch or Logstash publicly with this configuration.
 
-## What you get
+## Why Deploy ELK Stack on Railway
 
 - Official Elastic images pinned by version and digest in the Dockerfiles.
 - Basic-auth JSON intake with a restricted Elasticsearch writer.
@@ -67,6 +67,18 @@ Application logs must be sent explicitly. Railway platform logs are not collecte
 automatically. This is a single-node stack. Volumes provide persistence, not high
 availability or backups. [Operations](OPERATIONS.md) covers rotation, retention,
 DLQ inspection, snapshots and upgrade recovery.
+
+## Common Use Cases
+
+- Search application logs across services.
+- Investigate errors with structured fields and trace IDs.
+- Keep a small team's logs in a self-hosted stack.
+
+## Dependencies for ELK Stack
+
+A Railway account with capacity for three services and two persistent volumes.
+The template builds official Elasticsearch, Logstash and Kibana images.
+Producers need access to the same Railway project and environment.
 
 ## Measured cost
 
